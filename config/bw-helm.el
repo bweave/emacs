@@ -13,12 +13,8 @@
                    helm-semantic-fuzzy-match t
                    helm-imenu-fuzzy-match t
                    helm-completion-in-region-fuzzy-match t
-                   helm-candidate-number-list 150
-                   helm-split-window-inside-p t
-                   helm-move-to-line-cycle-in-source t
-                   helm-echo-input-in-header-line t
-                   helm-autoresize-max-height 0
-                   helm-autoresize-min-height 20)
+                   helm-candidate-number-list 10
+                   helm-move-to-line-cycle-in-source t)
              :config
              (helm-mode 1))
 

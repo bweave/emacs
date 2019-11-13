@@ -13,6 +13,7 @@
 (show-paren-mode 1)
 (setq visual-line-fringe-indicators '(left-curly-arrow right-curly-arrow))
 (setq-default left-fringe-width nil)
+(setq-default truncate-lines t)
 (setq-default indicate-empty-lines t)
 (setq-default indent-tabs-mode nil)
 

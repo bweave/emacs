@@ -8,20 +8,20 @@
   (setq evil-vsplit-window-right t)
   :config
   ;; Use Emacs state in these additional modes.
-  (dolist (mode '(ag-mode
-                  custom-mode
-                  custom-new-theme-mode
-                  dired-mode
-                  eshell-mode
-                  flycheck-error-list-mode
-                  git-rebase-mode
-                  org-capture-mode
-                  sunshine-mode
-                  term-mode))
-    (add-to-list 'evil-emacs-state-modes mode))
+  ;; (dolist (mode '(ag-mode
+  ;;                 custom-mode
+  ;;                 custom-new-theme-mode
+  ;;                 dired-mode
+  ;;                 eshell-mode
+  ;;                 flycheck-error-list-mode
+  ;;                 git-rebase-mode
+  ;;                 org-capture-mode
+  ;;                 sunshine-mode
+  ;;                 term-mode))
+  ;;   (add-to-list 'evil-emacs-state-modes mode))
 
-  (delete 'term-mode evil-insert-state-modes)
-  (delete 'eshell-mode evil-insert-state-modes)
+  ;; (delete 'term-mode evil-insert-state-modes)
+  ;; (delete 'eshell-mode evil-insert-state-modes)
 
   ;; Use insert state in these additional modes.
   (dolist (mode '(twittering-edit-mode
@@ -52,8 +52,19 @@
   (evil-define-key 'normal global-map (kbd "gD")      'dumb-jump-go-other-window)
   (evil-define-key 'normal global-map (kbd "C-p")     'helm-projectile-find-file)
   (evil-define-key 'normal global-map (kbd "M-s-p")   'helm-projectile-switch-project)
-  (evil-define-key 'normal global-map (kbd "C-t")     'bw-open-eshell)
+  ;; (evil-define-key 'normal global-map (kbd "C-t")     'bw-open-eshell)
+  (evil-define-key 'normal global-map (kbd "C-t")     'multi-term-dedicated-toggle)
   (evil-define-key 'normal global-map (kbd "\\ \\")   'tiny-menu)
+   ;; Neotree
+  (evil-define-key 'normal neotree-mode-map (kbd "RET") 'neotree-enter)
+  (evil-define-key 'normal neotree-mode-map (kbd "TAB") 'neotree-enter)
+  (evil-define-key 'normal neotree-mode-map (kbd "SPC") 'neotree-quick-look)
+  (evil-define-key 'normal neotree-mode-map (kbd "q") 'neotree-hide)
+  (evil-define-key 'normal neotree-mode-map (kbd "g") 'neotree-refresh)
+  (evil-define-key 'normal neotree-mode-map (kbd "n") 'neotree-next-line)
+  (evil-define-key 'normal neotree-mode-map (kbd "p") 'neotree-previous-line)
+  (evil-define-key 'normal neotree-mode-map (kbd "A") 'neotree-stretch-toggle)
+  (evil-define-key 'normal neotree-mode-map (kbd "H") 'neotree-hidden-file-toggle)
 
   (defun minibuffer-keyboard-quit ()
     "Abort recursive edit.
@@ -175,6 +186,7 @@
    ;; Buffers
    "b"   '(:ignore t :which-key "Buffers")
    "be"  '(helm-buffers-list :which-key "List")
+   "f"   '(neotree-project-dir :which-key "Find")
    "w"   '(evil-delete-buffer :which-key "Delete buffer")
    ;; Git
    "g"   '(:ignore t :which-key "Git")
